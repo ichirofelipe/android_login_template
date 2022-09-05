@@ -3,16 +3,17 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:keepScreenOn="true"
     android:fillViewport="true"
+    android:background="@drawable/bg_login"
     tools:context=".MainActivity">
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_login"
+        android:layout_height="wrap_content"
         tools:context=".MainActivity">
 
         <androidx.constraintlayout.widget.Guideline
@@ -44,12 +45,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:inputType="textEmailAddress"
             android:background="@drawable/et_bg"
             android:hint="Email address"
+            android:inputType="textEmailAddress"
             android:padding="16dp"
-            android:textColorHint="#55ffffff"
             android:textColor="#ffffff"
+            android:textColorHint="#55ffffff"
             app:layout_constraintEnd_toStartOf="@id/guideline_right"
             app:layout_constraintStart_toStartOf="@id/guideline_left"
             app:layout_constraintTop_toBottomOf="@+id/logo" />
@@ -59,13 +60,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:inputType="textPassword"
+            android:fontFamily="sans-serif"
             android:background="@drawable/et_bg"
-            android:hint="Password"
-            android:padding="16dp"
-            android:textColorHint="#55ffffff"
-            android:textColor="#ffffff"
             android:drawableRight="@drawable/ic_eye"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:textColor="#ffffff"
+            android:textColorHint="#55ffffff"
             app:layout_constraintEnd_toStartOf="@id/guideline_right"
             app:layout_constraintStart_toStartOf="@id/guideline_left"
             app:layout_constraintTop_toBottomOf="@+id/username" />
@@ -75,55 +77,35 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
             android:text="Login Now"
             android:textAllCaps="false"
-            android:background="@drawable/bg_btn"
             android:textColor="@color/login_form_details_medium"
-            app:layout_constraintTop_toBottomOf="@id/password"
             app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-            app:layout_constraintStart_toStartOf="@+id/guideline_left"/>
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/password" />
 
         <TextView
             android:id="@+id/forgot_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="Don't Remember password?"
             android:textColor="@color/login_form_details"
-            app:layout_constraintStart_toStartOf="@id/guideline_left"
             app:layout_constraintEnd_toStartOf="@id/guideline_right"
-            app:layout_constraintTop_toBottomOf="@id/btn_login"
-            android:layout_marginTop="16dp"
-            android:paddingBottom="32dp"
-            />
-
-        <View
-            android:id="@+id/footer_line"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginBottom="50dp"
-            android:background="#fff"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Don't have an account"
-            app:layout_constraintTop_toBottomOf="@id/footer_line"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:textColor="@color/login_form_details"/>
+            app:layout_constraintStart_toStartOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/btn_login" />
 
         <View
             android:id="@+id/line1"
             android:layout_width="120dp"
             android:layout_height="1dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="64dp"
             android:background="#55ffffff"
-            android:layout_marginBottom="32dp"
-            app:layout_constraintStart_toStartOf="@id/guideline_left"
-            app:layout_constraintTop_toBottomOf="@id/forgot_password"
             app:layout_constraintBottom_toTopOf="@id/facebook_login"
-            />
+            app:layout_constraintStart_toStartOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/forgot_password" />
 
         <TextView
             android:id="@+id/or_linethrough"
@@ -133,35 +115,55 @@
             android:textColor="@color/login_form_details"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/line1"
-            app:layout_constraintTop_toTopOf="@id/line1"
-            app:layout_constraintStart_toEndOf="@id/line1"
             app:layout_constraintEnd_toStartOf="@id/line2"
-            />
+            app:layout_constraintStart_toEndOf="@id/line1"
+            app:layout_constraintTop_toTopOf="@id/line1" />
 
         <View
             android:id="@+id/line2"
             android:layout_width="120dp"
             android:layout_height="1dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="64dp"
             android:background="#55ffffff"
-            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toTopOf="@id/facebook_login"
             app:layout_constraintEnd_toStartOf="@id/guideline_right"
-            app:layout_constraintTop_toBottomOf="@id/forgot_password"
-            app:layout_constraintBottom_toTopOf="@id/facebook_login"/>
+            app:layout_constraintTop_toBottomOf="@id/forgot_password" />
 
         <TextView
             android:id="@+id/facebook_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign in with Faceboook"
-            android:textColor="@color/login_form_details"
-            app:layout_constraintStart_toStartOf="@id/guideline_left"
-            app:layout_constraintEnd_toStartOf="@id/guideline_right"
-            app:layout_constraintBottom_toTopOf="@id/footer_line"
             android:layout_marginBottom="16dp"
             android:drawableStart="@drawable/ic_if_square_facebook"
             android:drawablePadding="8dp"
             android:gravity="center"
+            android:text="Sign in with Faceboook"
+            android:textColor="@color/login_form_details"
+            app:layout_constraintBottom_toTopOf="@id/footer_line"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toStartOf="@id/guideline_left" />
+
+        <View
+            android:id="@+id/footer_line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#fff"
+            app:layout_constraintBottom_toTopOf="@+id/no_account"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/no_account"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Don't have an account"
+            android:textColor="@color/login_form_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:gravity="center"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>
